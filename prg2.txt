@@ -1,0 +1,154 @@
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop (main)
+$ git clone https://github.com/hemanth-n-03/lab2.git
+Cloning into 'lab2'...
+warning: You appear to have cloned an empty repository.
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop (main)
+$ cd lab2
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main)
+$ echo "hello"> first.txt
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main)
+$ git add .
+warning: in the working copy of 'first.txt', LF will be replaced by CRLF the next time Git touches it
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main)
+$ git commit -m"IC"
+[main (root-commit) 01fc5e6] IC
+ 1 file changed, 1 insertion(+)
+ create mode 100644 first.txt
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main)
+$ git checkout -b feature
+Switched to a new branch 'feature'
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (feature)
+$ echo "hi"> first.txt
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (feature)
+$ git commit -m"IC"
+On branch feature
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   first.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (feature)
+$ git add .
+warning: in the working copy of 'first.txt', LF will be replaced by CRLF the next time Git touches it
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (feature)
+$ git commit -m"SC"
+[feature c839659] SC
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (feature)
+$ git checkout main
+Switched to branch 'main'
+Your branch is based on 'origin/main', but the upstream is gone.
+  (use "git branch --unset-upstream" to fixup)
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main)
+$ echo "hello everyone"> first.txt
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main)
+$ git add .
+warning: in the working copy of 'first.txt', LF will be replaced by CRLF the next time Git touches it
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main)
+$ git commit -m"TC"
+[main 8675dae] TC
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main)
+$ git push origin main
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (6/6), 429 bytes | 214.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/hemanth-n-03/lab2.git
+ * [new branch]      main -> main
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main)
+$ git diff
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main)
+$ git diff main feature
+diff --git a/first.txt b/first.txt
+index 60e2264..45b983b 100644
+--- a/first.txt
++++ b/first.txt
+@@ -1 +1 @@
+-hello everyone
++hi
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main)
+$ git merge feature
+Auto-merging first.txt
+CONFLICT (content): Merge conflict in first.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main|MERGING)
+$ ls
+first.txt
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main|MERGING)
+$ cd ..
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop (main)
+$ ls
+SNBC/  lab2/  pr1/  prg1/  smartclassroom-fixed/
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop (main)
+$ cd lab2
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main|MERGING)
+$ git merge feature
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main|MERGING)
+$ git push
+Everything up-to-date
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main|MERGING)
+$ git merge feature
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main|MERGING)
+$ git checkout main
+first.txt: needs merge
+error: you need to resolve your current index first
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main|MERGING)
+$ git add .
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main|MERGING)
+$ git commit -m "FC"
+[main 63ca763] FC
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main)
+$ git merge feature
+Already up to date.
+
+ASUS@WIN-NO46OO9F5FO CLANGARM64 ~/Desktop/lab2 (main)
+$ git push origin main
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (6/6), 484 bytes | 161.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/hemanth-n-03/lab2.git
+   8675dae..63ca763  main -> main
+
